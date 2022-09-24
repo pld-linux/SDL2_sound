@@ -9,6 +9,7 @@ Group:		Libraries
 #Source0Download: https://github.com/icculus/SDL_sound/releases
 Source0:	https://github.com/icculus/SDL_sound/archive/v%{version}/SDL_sound-%{version}.tar.gz
 # Source0-md5:	4917a87b45f7b940a68cd1b60881cabb
+Patch0:		SDL_sound-use-builtin-clz.patch
 URL:		http://www.icculus.org/SDL_sound/
 BuildRequires:	SDL2-devel >= 2.0
 BuildRequires:	cmake >= 2.8.12
@@ -82,6 +83,7 @@ Statyczne biblioteki SDL_sound.
 
 %prep
 %setup -q -n SDL_sound-%{version}
+%patch0 -p1
 
 %build
 install -d build 
