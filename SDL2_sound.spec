@@ -2,17 +2,17 @@
 Summary:	An abstract soundfile decoder
 Summary(pl.UTF-8):	Abstrakcyjny dekoder plików dźwiękowych
 Name:		SDL2_sound
-Version:	2.0.1
+Version:	2.0.2
 Release:	1
 License:	Zlib
 Group:		Libraries
 #Source0Download: https://github.com/icculus/SDL_sound/releases
 Source0:	https://github.com/icculus/SDL_sound/archive/v%{version}/SDL_sound-%{version}.tar.gz
-# Source0-md5:	4917a87b45f7b940a68cd1b60881cabb
+# Source0-md5:	08405318c3b7bbeff2d6d5bc72fc160f
 Patch0:		SDL_sound-use-builtin-clz.patch
 URL:		http://www.icculus.org/SDL_sound/
 BuildRequires:	SDL2-devel >= 2.0
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.0
 Requires:	SDL2 >= 2.0
 Obsoletes:	SDL_sound-play < 2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -107,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE.txt docs/{CHANGELOG,CREDITS,README}.txt
+%doc LICENSE.txt README.md docs/{CHANGELOG,CREDITS}.txt
 %attr(755,root,root) %{_bindir}/playsound
 %attr(755,root,root) %{_libdir}/libSDL2_sound.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libSDL2_sound.so.2
@@ -116,6 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libSDL2_sound.so
 %{_includedir}/SDL2/SDL_sound.h
+%{_pkgconfigdir}/SDL2_sound.pc
+%{_libdir}/cmake/SDL2_sound
 
 %files static
 %defattr(644,root,root,755)
